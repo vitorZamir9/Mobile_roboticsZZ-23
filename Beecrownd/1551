@@ -1,0 +1,45 @@
+import java.util.Scanner
+
+fun main(args: Array<String>) {
+    val sc = Scanner(System.`in`)
+
+    if (sc.hasNextInt()) {
+        val n = sc.nextInt()
+        
+        // Verifica se realmente tem um "Enter" para limpar antes de tentar limpar
+        if (sc.hasNextLine()) {
+            sc.nextLine() 
+        }
+
+        repeat(n) {
+            // A PROTEÇÃO CONTRA O RUNTIME ERROR: 
+            // Só tenta ler a frase se a linha realmente existir no arquivo de teste
+            if (sc.hasNextLine()) {
+                val frase = sc.nextLine()
+
+                // Criamos um conjunto vazio para guardar as letras únicas
+                val letrasUnicas = mutableSetOf<Char>()
+
+                // Passamos por cada letra da frase
+                for (letra in frase) {
+                    // Verificamos se é uma letra de 'a' até 'z' (ignora espaços e vírgulas)
+                    if (letra in 'a'..'z') {
+                        letrasUnicas.add(letra)
+                    }
+                }
+
+                // O tamanho do conjunto é a quantidade exata de letras diferentes!
+                val totalLetras = letrasUnicas.size
+
+                // Classificação conforme o Beecrowd
+                if (totalLetras == 26) {
+                    println("frase completa")
+                } else if (totalLetras >= 13) {
+                    println("frase quase completa")
+                } else {
+                    println("frase mal elaborada")
+                }
+            }
+        }
+    }
+}
