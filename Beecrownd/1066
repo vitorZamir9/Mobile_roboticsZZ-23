@@ -1,0 +1,39 @@
+import java.util.Scanner
+
+fun main(args: Array<String>) {
+    val sc = Scanner(System.`in`)
+
+    // Nossos "contadores" começam em zero
+    var pares = 0
+    var impares = 0
+    var positivos = 0
+    var negativos = 0
+
+    // O exercício diz que são exatamente 5 leituras
+    repeat(5) {
+        if (sc.hasNextInt()) {
+            val num = sc.nextInt()
+
+            // 1. Verifica se é PAR ou ÍMPAR
+            if (num % 2 == 0) {
+                pares++
+            } else {
+                impares++
+            }
+
+            // 2. Verifica se é POSITIVO ou NEGATIVO
+            // Nota: O zero é ignorado aqui, pois não é > 0 e nem < 0
+            if (num > 0) {
+                positivos++
+            } else if (num < 0) {
+                negativos++
+            }
+        }
+    }
+
+    // Imprime exatamente como o Beecrowd pede
+    println("$pares valor(es) par(es)")
+    println("$impares valor(es) impar(es)")
+    println("$positivos valor(es) positivo(s)")
+    println("$negativos valor(es) negativo(s)")
+}
