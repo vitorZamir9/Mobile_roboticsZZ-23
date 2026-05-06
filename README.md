@@ -35,9 +35,9 @@
 
 ## Sobre Mim
 
-Sou um desenvolvedor e projetista de 18 anos, focado em integrar software de alto nível com hardware mecânico para resolver problemas complexos de autonomia. Atualmente, curso o primeiro semestre de Ciência da Computação na UniFBV, possuindo uma base técnica estabelecida desde a minha formação em Jogos Digitais no Colégio Sesi Ibura.
+Sou um desenvolvedor e projetista de 18 anos, focado em integrar software de alto nível com hardware mecânico para resolver problemas complexos de autonomia. Atualmente, curso o primeiro semestre de Ciência da Computação na UniFBV, com uma base técnica sólida estabelecida desde a minha formação em Jogos Digitais no Colégio Sesi Ibura.
 
-Minha trajetória na robótica vai além do desenvolvimento técnico. Atuo há cinco anos como Embaixador e Mentor na FIRST, liderando equipes e definindo estratégias de competição, onde mantenho uma parceria sólida de desenvolvimento e mentoria com meu parceiro de equipe, Vinicius.
+Minha trajetória na robótica vai além do desenvolvimento técnico. Atuo há cinco anos como Embaixador e Mentor na FIRST, liderando equipes, definindo estratégias de competição e mantendo parcerias contínuas de mentoria. Como fruto de muito trabalho em equipe e da busca constante pela excelência, vivenciei um grande marco na minha jornada como competidor: em julho de 2025, conquistamos a classificação para competir no Canadá pela FTC. Nessa etapa, fomos honrados com o prêmio de 3º lugar em Design do Robô (Robot Design), um reconhecimento internacional que validou nosso projeto como o terceiro robô mais funcional e estrategicamente exemplar do torneio.
 
 ---
 
@@ -77,9 +77,9 @@ O desenvolvimento de robôs de alta performance exige o domínio de múltiplas c
 * Redes Neurais (YOLO): Detecção e classificação de objetos e alvos em tempo real.
 
 **Hardware e Sistemas Embarcados:**
-* Raspberry Pi (4 e 5): Processamento principal, IA e navegação.
-* ESP32 e Arduino: Sistemas distribuídos e aquisição de dados.
-* Sensores Avançados: Integração I2C/SPI de VL53L0X (Laser/ToF) e MPU6050 (IMU).
+* Kit Studica Robotics (WorldSkills): Plataforma de hardware oficial e exclusiva da competição (Skill #23), fornecendo a base de controle eletrônico e estrutural de padrão industrial para a construção do chassi e sistemas de tração.
+* Raspberry Pi (4 e 5): Processamento principal, inteligência artificial e lógica de navegação autônoma.
+* Sensores Avançados: Integração I2C/SPI de sensores de classe industrial, como VL53L0X (Laser/ToF), encoders e MPU6050 (IMU), fundamentais para a telemetria e o mapeamento.
 
 **Engenharia Mecânica e Design:**
 * Modelagem CAD para prototipagem de peças estruturais.
