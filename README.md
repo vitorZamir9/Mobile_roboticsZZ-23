@@ -1,6 +1,6 @@
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/6949fade-134c-4375-8fb0-e43589e54f30" style="width:60%;" alt="WorldSkills #23 - Mobile Robotics"/>
+  <img src="https://github.com/user-attachments/assets/6949fade-134c-4375-8fb0-e43589e54f30" style="width:30%;" alt="WorldSkills #23 - Mobile Robotics"/>
 </div>
 
 <br/>
