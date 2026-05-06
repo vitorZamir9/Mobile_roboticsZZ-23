@@ -1,0 +1,63 @@
+import java.util.Scanner
+
+fun main(args: Array<String>) {
+    val sc = Scanner(System.`in`)
+
+    while (sc.hasNextInt()) {
+        val n = sc.nextInt()
+        val m = sc.nextInt()
+        
+        if (n == 0 && m == 0) break
+
+        val matriz = Array(n) { IntArray(m) }
+        for (i in 0 until n) {
+            for (j in 0 until m) {
+                matriz[i][j] = sc.nextInt()
+            }
+        }
+
+        var criteriosAlcancados = 0
+
+        var regra1 = true
+        for (i in 0 until n) {
+            var somaLinha = 0
+            for (j in 0 until m) {
+                somaLinha += matriz[i][j]
+            }
+            if (somaLinha == m) regra1 = false
+        }
+        if (regra1) criteriosAlcancados++
+
+        var regra2 = true
+        for (j in 0 until m) {
+            var somaColuna = 0
+            for (i in 0 until n) {
+                somaColuna += matriz[i][j]
+            }
+            if (somaColuna == 0) regra2 = false
+        }
+        if (regra2) criteriosAlcancados++
+
+        var regra3 = true
+        for (j in 0 until m) {
+            var somaColuna = 0
+            for (i in 0 until n) {
+                somaColuna += matriz[i][j]
+            }
+            if (somaColuna == n) regra3 = false
+        }
+        if (regra3) criteriosAlcancados++
+
+        var regra4 = true
+        for (i in 0 until n) {
+            var somaLinha = 0
+            for (j in 0 until m) {
+                somaLinha += matriz[i][j]
+            }
+            if (somaLinha == 0) regra4 = false
+        }
+        if (regra4) criteriosAlcancados++
+
+        println(criteriosAlcancados)
+    }
+}
