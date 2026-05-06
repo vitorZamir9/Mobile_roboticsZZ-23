@@ -85,5 +85,4 @@ O desenvolvimento de robôs de alta performance exige o domínio de múltiplas c
 **Engenharia Mecânica e Design:**
 * Modelagem CAD para prototipagem de peças estruturais.
 * Manufatura Aditiva, incluindo calibração de impressão 3D com filamentos de engenharia (ABS).
-* Fabricação e moldagem de precisão em silicone para pneus de alta tração.<img width="294" height="171" alt="wprd" src="https://github.com/user-attachments/assets/b7ddac29-8b4b-47f0-9bae-224c3067cd93" />
-<img width="294" height="171" alt="wprd" src="https://github.com/user-attachments/assets/ad1b6da1-7777-4969-bae9-465548c85794" />
+* Fabricação e moldagem de precisão em silicone para pneus de alta tração.
