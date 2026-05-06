@@ -1,0 +1,21 @@
+import java.util.Scanner
+import kotlin.math.pow
+fun main(args: Array<String>) {
+    val sc = Scanner(System.`in`)
+
+    if (sc.hasNextInt()) {
+        val t = sc.nextInt()
+        
+        repeat(t){
+            //codigo
+            val c = sc.nextInt()
+            val d = sc.nextInt()
+            if (c == 0 && d == 0){
+                println(0)
+            }else{
+                val resultado = Math.pow(26.0, c.toDouble()) * Math.pow(10.0, d.toDouble())
+                println(resultado.toLong())
+            }
+        }
+    }
+}
