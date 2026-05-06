@@ -7,19 +7,19 @@
 <br/>
 
 <div align="center">
-  <a href="[SEU_LINKEDIN]">
+  <a href="[https://www.linkedin.com/in/vitor-zamir-2309a5319?utm_source=share_via&utm_content=profile&utm_medium=member_ios]">
     <img src="https://img.shields.io/badge/LinkedIn-Vitor_Zamir-blue" alt="LinkedIn">
   </a>
   
-  <a href="mailto:[SEU_EMAIL]">
+  <a href="mailto:[vitorzamirzamir@gmail.com]">
     <img src="https://img.shields.io/badge/Email-Contato-red" alt="Email">
   </a>
 
-  <a href="[SEU_GITHUB]">
+  <a href="[https://github.com/vitorZamir9]">
     <img src="https://img.shields.io/badge/GitHub-Vitor_Zamir-black" alt="GitHub">
   </a>
 
-  <a href="[SEU_INSTAGRAM]">
+  <a href="[https://www.instagram.com/vitorzamir_?igsh=dmRmMWt6cWFvOHhn&utm_source=qr]">
     <img src="https://img.shields.io/badge/Instagram-Vitor_Zamir-purple" alt="Instagram">
   </a>
 </div>
