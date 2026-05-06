@@ -1,0 +1,26 @@
+import java.util.Scanner
+
+fun main(args: Array<String>) {
+    val sc = Scanner(System.`in`)
+
+    var quantidadePositivos = 0
+    var somaPositivos = 0.0
+
+    repeat(6) {
+        if (sc.hasNextDouble()) {
+            val valor = sc.nextDouble()
+
+            if (valor > 0) {
+                quantidadePositivos++
+                somaPositivos += valor
+            }
+        }
+    }
+
+    println("$quantidadePositivos valores positivos")
+
+    if (quantidadePositivos > 0) {
+        val media = somaPositivos / quantidadePositivos
+        println("%.1f".format(media))
+    }
+}
