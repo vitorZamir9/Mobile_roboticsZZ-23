@@ -1,0 +1,50 @@
+import java.util.*
+import java.io.*
+
+fun main(args: Array<String>) {
+    // Usamos BufferedReader e StringTokenizer para leitura ultra rápida
+    val br = BufferedReader(InputStreamReader(System.`in`))
+    val out = PrintWriter(System.out)
+    var caso = 1
+
+    while (true) {
+        val linha = br.readLine() ?: break
+        val st = StringTokenizer(linha)
+        if (!st.hasMoreTokens()) break
+        
+        val n = st.nextToken().toInt()
+        val q = st.nextToken().toInt()
+
+        if (n == 0 && q == 0) break
+
+        val marmores = IntArray(n)
+        for (i in 0 until n) {
+            marmores[i] = br.readLine().trim().toInt()
+        }
+
+        // Ordenação rápida O(n log n)
+        marmores.sort()
+
+        out.println("CASE# $caso:")
+
+        for (i in 0 until q) {
+            val busca = br.readLine().trim().toInt()
+            
+            // Busca Binária: Encontra a posição de forma logarítmica
+            var posicao = Arrays.binarySearch(marmores, busca)
+
+            // No Beecrowd, se houver números repetidos, o binarySearch pode não 
+            // retornar a PRIMEIRA ocorrência. Este loop garante que pegamos a primeira.
+            if (posicao >= 0) {
+                while (posicao > 0 && marmores[posicao - 1] == busca) {
+                    posicao--
+                }
+                out.println("$busca found at ${posicao + 1}")
+            } else {
+                out.println("$busca not found")
+            }
+        }
+        out.flush() // Descarrega o buffer de saída
+        caso++
+    }
+}
