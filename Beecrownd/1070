@@ -1,0 +1,18 @@
+import java.util.Scanner
+
+fun main(args: Array<String>) {
+    val sc= Scanner(System.`in`)
+    if (sc.hasNextInt()){
+        var x= sc.nextInt()
+        var cont= 0
+        
+        if (x % 2 == 0){
+            x++
+        }
+        while (cont < 6){
+            println(x)
+            x += 2
+            cont++
+        }
+    }
+}
