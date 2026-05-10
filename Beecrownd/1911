@@ -1,0 +1,45 @@
+import java.util.Scanner
+
+fun main(args: Array<String>) {
+    val sc = Scanner(System.`in`)
+
+    while (sc.hasNextInt()) {
+        val n = sc.nextInt()
+        if (n == 0) break
+
+        // 1. Criar o dicionário (Cadastro original)
+        val cadastro = mutableMapOf<String, String>()
+        repeat(n) {
+            val nome = sc.next()
+            val assinaturaOriginal = sc.next()
+            cadastro[nome] = assinaturaOriginal
+        }
+
+        val m = sc.nextInt()
+        var falsas = 0
+
+        // 2. Verificar a lista de presença
+        repeat(m) {
+            val nome = sc.next()
+            val assinaturaDia = sc.next()
+            val original = cadastro[nome]
+
+            if (original != null) {
+                // Conta quantos caracteres são diferentes
+                var erros = 0
+                for (i in original.indices) {
+                    if (original[i] != assinaturaDia[i]) {
+                        erros++
+                    }
+                }
+
+                // Se tiver MAIS de um erro, é falsa
+                if (erros > 1) {
+                    falsas++
+                }
+            }
+        }
+
+        println(falsas)
+    }
+}
