@@ -1,0 +1,39 @@
+import java.util.Scanner
+
+fun main(args: Array<String>) {
+    val sc = Scanner(System.`in`)
+
+    while (sc.hasNextInt()) {
+        val n = sc.nextInt()
+        if (n == 0) break // Condição de paragem
+
+        // Lê a string de comandos
+        val comandos = sc.next()
+        
+        // Começa sempre virado para o Norte (0)
+        var posicao = 0
+
+        for (comando in comandos) {
+            if (comando == 'D') {
+                posicao++
+            } else if (comando == 'E') {
+                posicao--
+            }
+        }
+
+        // Ajuste para números negativos e cálculo do resto
+        // Somar 4 e tirar o resto de 4 garante que o resultado fique entre 0 e 3
+        var resultadoFinal = posicao % 4
+        if (resultadoFinal < 0) {
+            resultadoFinal += 4
+        }
+
+        // Converte o número de volta para a letra correspondente
+        when (resultadoFinal) {
+            0 -> println("N")
+            1 -> println("L")
+            2 -> println("S")
+            3 -> println("O")
+        }
+    }
+}
