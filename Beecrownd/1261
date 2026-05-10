@@ -1,0 +1,29 @@
+import java.util.Scanner
+
+fun main(args: Array<String>) {
+    val sc = Scanner(System.`in`)
+
+    if (sc.hasNextInt()) {
+        val m = sc.nextInt()
+        val n = sc.nextInt()
+
+        val dicionario = mutableMapOf<String, Int>()
+
+        repeat(m) {
+            val palavra = sc.next()
+            val valor = sc.nextInt()
+            dicionario[palavra] = valor
+        }
+
+        repeat(n) {
+            var salarioTotal = 0L
+            while (sc.hasNext()) {
+                val palavraDescricao = sc.next()
+                if (palavraDescricao == ".") break
+                
+                salarioTotal += dicionario.getOrDefault(palavraDescricao, 0)
+            }
+            println(salarioTotal)
+        }
+    }
+}
