@@ -1,0 +1,47 @@
+import java.util.Scanner
+import java.util.LinkedHashSet
+
+fun main(args: Array<String>) { // <-- A correção está aqui!
+    val sc = Scanner(System.`in`)
+    
+    val amigos = LinkedHashSet<String>()
+    val naoAmigos = LinkedHashSet<String>()
+    
+    var vencedor = ""
+
+    while (sc.hasNext()) {
+        val linha = sc.nextLine().trim()
+        if (linha == "FIM") break 
+        
+        val partes = linha.split(" ")
+        if (partes.size < 2) continue
+        
+        val nome = partes[0]
+        val escolha = partes[1]
+
+        if (escolha == "YES") {
+            if (amigos.add(nome)) {
+                if (nome.length > vencedor.length) {
+                    vencedor = nome
+                }
+            }
+        } else if (escolha == "NO") {
+            naoAmigos.add(nome)
+        }
+    }
+
+    // Ordenar alfabeticamente
+    val amigosOrdenados = amigos.sorted()
+    val naoAmigosOrdenados = naoAmigos.sorted()
+
+    for (amigo in amigosOrdenados) {
+        println(amigo)
+    }
+    
+    for (naoAmigo in naoAmigosOrdenados) {
+        println(naoAmigo)
+    }
+    
+    println("\nAmigo do Habay:")
+    println(vencedor)
+}
