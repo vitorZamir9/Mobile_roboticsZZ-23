@@ -1,0 +1,37 @@
+import java.util.StringTokenizer
+import java.io.BufferedReader
+import java.io.InputStreamReader
+
+fun main(args: Array<String>) {
+    val br = BufferedReader(InputStreamReader(System.`in`))
+    val primeiraLinha = br.readLine() ?: return
+    val n = primeiraLinha.trim().toInt()
+
+    for (i in 1..n) {
+        val st1 = StringTokenizer(br.readLine())
+        val m = st1.nextToken().toInt()
+        val c = st1.nextToken().toInt()
+
+        val tabela = Array(m) { mutableListOf<Int>() }
+        val st2 = StringTokenizer(br.readLine())
+        
+        repeat(c) {
+            val valor = st2.nextToken().toInt()
+            tabela[valor % m].add(valor)
+        }
+
+        val output = StringBuilder()
+        for (j in 0 until m) {
+            output.append("$j -> ")
+            for (item in tabela[j]) {
+                output.append("$item -> ")
+            }
+            output.append("\\\n")
+        }
+
+        print(output.toString())
+        if (i < n) {
+            println()
+        }
+    }
+}
