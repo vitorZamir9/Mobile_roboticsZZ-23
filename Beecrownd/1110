@@ -1,0 +1,40 @@
+import java.util.Scanner
+import java.util.LinkedList
+import java.util.Queue
+
+fun main(args: Array<String>) {
+    val sc = Scanner(System.`in`)
+
+    while (true) {
+        // Proteção contra o fim inesperado do ficheiro
+        if (!sc.hasNextInt()) break 
+        
+        val n = sc.nextInt()
+        
+        // A condição de paragem dada pelo problema
+        if (n == 0) break
+
+        // Criamos a nossa Fila de cartas
+        val cartas: Queue<Int> = LinkedList()
+        
+        // Preenchemos a fila de 1 até N
+        for (i in 1..n) {
+            cartas.add(i)
+        }
+
+        // Lista para guardar as cartas que vamos deitando fora
+        val descartadas = mutableListOf<Int>()
+
+        // O processo repete-se enquanto houver pelo menos 2 cartas
+        while (cartas.size >= 2) {
+            // poll() remove e devolve o primeiro elemento da fila
+            descartadas.add(cartas.poll()) // 1. Deita fora o topo
+            cartas.add(cartas.poll())      // 2. Pega no novo topo e mete na base
+        }
+
+        // O joinToString(", ") é uma funcionalidade fantástica do Kotlin 
+        // que formata a lista separada por vírgulas automaticamente!
+        println("Discarded cards: " + descartadas.joinToString(", "))
+        println("Remaining card: " + cartas.poll())
+    }
+}
