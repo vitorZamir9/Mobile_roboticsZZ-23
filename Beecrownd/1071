@@ -1,0 +1,27 @@
+import java.util.Scanner
+
+fun main(args: Array<String>) {
+    val sc = Scanner(System.`in`)
+    
+    if (sc.hasNextInt()) {
+        val x = sc.nextInt()
+        val y = sc.nextInt()
+        
+        // Descobrimos quem é o menor e o maior para criar o intervalo
+        val menor = if (x < y) x else y
+        val maior = if (x > y) x else y
+        
+        var soma = 0
+        
+        // Começamos do menor + 1 (porque é ENTRE eles)
+        // Vamos até o maior - 1
+        for (i in (menor + 1)..(maior - 1)) {
+            // Se o resto da divisão por 2 não for 0, é ímpar
+            if (i % 2 != 0) {
+                soma += i
+            }
+        }
+        
+        println(soma)
+    }
+}
