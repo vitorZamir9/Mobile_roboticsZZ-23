@@ -1,0 +1,32 @@
+import java.util.Scanner
+
+fun main(args: Array<String>) {
+    val sc = Scanner(System.`in`)
+
+    if (sc.hasNextInt()) {
+        val n = sc.nextInt()
+        sc.nextLine()
+
+        val traducoes = mutableMapOf<String, String>()
+
+        repeat(n) {
+            val lingua = sc.nextLine()
+            val saudacao = sc.nextLine()
+            traducoes[lingua] = saudacao
+        }
+
+        if (sc.hasNextInt()) {
+            val m = sc.nextInt()
+            sc.nextLine()
+
+            repeat(m) {
+                val nomeCrianca = sc.nextLine()
+                val linguaCrianca = sc.nextLine()
+
+                println(nomeCrianca)
+                println(traducoes[linguaCrianca])
+                println()
+            }
+        }
+    }
+}
