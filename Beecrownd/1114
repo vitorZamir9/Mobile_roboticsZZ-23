@@ -1,0 +1,25 @@
+import java.util.Scanner
+
+fun main(args: Array<String>) {
+    val sc = Scanner(System.`in`)
+    
+    // Criamos uma variável para começar o laço
+    var senhaDigitada = 0
+    
+    // O laço while (enquanto) continuará rodando 
+    // enquanto a senha for diferente de 2002
+    while (senhaDigitada != 2002) {
+        if (sc.hasNextInt()) {
+            senhaDigitada = sc.nextInt()
+            
+            if (senhaDigitada == 2002) {
+                println("Acesso Permitido")
+            } else {
+                println("Senha Invalida")
+            }
+        } else {
+            // Caso a entrada acabe inesperadamente (segurança para o Beecrowd)
+            break 
+        }
+    }
+}
