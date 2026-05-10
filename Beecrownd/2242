@@ -1,0 +1,25 @@
+import java.util.Scanner
+
+fun main(args: Array<String>) {
+    val sc = Scanner(System.`in`)
+
+    if (sc.hasNext()) {
+        val risada = sc.next()
+        val vogais = "aeiou"
+        var apenasVogais = ""
+
+        for (char in risada) {
+            if (char in vogais) {
+                apenasVogais += char
+            }
+        }
+
+        val risadaInvertida = apenasVogais.reversed()
+
+        if (apenasVogais == risadaInvertida) {
+            println("S")
+        } else {
+            println("N")
+        }
+    }
+}
