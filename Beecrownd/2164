@@ -1,0 +1,18 @@
+import java.util.Scanner
+import kotlin.math.*
+
+fun main(args: Array<String>) {
+    val sc = Scanner(System.`in`)
+
+    if (sc.hasNextInt()) {
+        val n = sc.nextInt()
+        
+        val raiz5 = sqrt(5.0)
+        val parte1 = ((1 + raiz5) / 2.0).pow(n.toDouble())
+        val parte2 = ((1 - raiz5) / 2.0).pow(n.toDouble())
+        
+        val resultado = (parte1 - parte2) / raiz5
+        
+        println("%.1f".format(resultado))
+    }
+}
