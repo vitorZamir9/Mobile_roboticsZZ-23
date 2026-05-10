@@ -1,0 +1,24 @@
+import java.util.Scanner
+
+fun main(args: Array<String>) {
+    val sc = Scanner(System.`in`)
+
+    val fib = LongArray(61)
+    fib[0] = 0
+    fib[1] = 1
+
+    for (i in 2..60) {
+        fib[i] = fib[i - 1] + fib[i - 2]
+    }
+
+    if (sc.hasNextInt()) {
+        val t = sc.nextInt()
+
+        repeat(t) {
+            if (sc.hasNextInt()) {
+                val n = sc.nextInt()
+                println("Fib($n) = ${fib[n]}")
+            }
+        }
+    }
+}
