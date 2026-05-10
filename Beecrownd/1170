@@ -1,0 +1,23 @@
+import java.util.Scanner
+
+fun main(args: Array<String>) {
+    val sc = Scanner(System.`in`)
+
+    if (sc.hasNextInt()) {
+        val n = sc.nextInt()
+
+        repeat(n) {
+            if (sc.hasNextDouble()) {
+                var comida = sc.nextDouble()
+                var dias = 0
+
+                while (comida > 1.0) {
+                    comida /= 2.0
+                    dias++
+                }
+
+                println("$dias dias")
+            }
+        }
+    }
+}
