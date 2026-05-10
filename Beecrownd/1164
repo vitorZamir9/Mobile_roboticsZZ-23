@@ -1,0 +1,32 @@
+import java.util.Scanner
+
+fun main(args: Array<String>) {
+    val sc = Scanner(System.`in`)
+
+    if (sc.hasNextInt()) {
+        val n = sc.nextInt() // Quantidade de casos de teste
+
+        repeat(n) {
+            if (sc.hasNextInt()) {
+                val x = sc.nextInt()
+                
+                var soma = 0
+                
+                // Percorremos de 1 até a metade de X
+                // Se X for 6, testamos 1, 2 e 3
+                for (i in 1 until x) {
+                    if (x % i == 0) {
+                        soma += i
+                    }
+                }
+
+                // Verificação final
+                if (soma == x) {
+                    println("$x eh perfeito")
+                } else {
+                    println("$x nao eh perfeito")
+                }
+            }
+        }
+    }
+}
