@@ -1,0 +1,26 @@
+import java.util.Scanner
+
+fun main(args: Array<String>) {
+    val sc = Scanner(System.`in`)
+
+    val fib = IntArray(40)
+    val calls = IntArray(40)
+
+    fib[0] = 0
+    fib[1] = 1
+    calls[0] = 0
+    calls[1] = 0
+
+    for (i in 2..39) {
+        fib[i] = fib[i - 1] + fib[i - 2]
+        calls[i] = calls[i - 1] + calls[i - 2] + 2
+    }
+
+    if (sc.hasNextInt()) {
+        val t = sc.nextInt()
+        repeat(t) {
+            val n = sc.nextInt()
+            println("fib($n) = ${calls[n]} calls = ${fib[n]}")
+        }
+    }
+}
