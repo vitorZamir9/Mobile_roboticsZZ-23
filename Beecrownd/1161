@@ -1,0 +1,21 @@
+import java.util.Scanner
+
+fun main(args: Array<String>) {
+    val sc = Scanner(System.`in`)
+
+    while (sc.hasNextLong()) {
+        val m = sc.nextLong()
+        val n = sc.nextLong()
+
+        fun calcularFatorial(num: Long): Long {
+            var fat: Long = 1
+            for (i in 1..num) {
+                fat *= i
+            }
+            return fat
+        }
+
+        val soma = calcularFatorial(m) + calcularFatorial(n)
+        println(soma)
+    }
+}
