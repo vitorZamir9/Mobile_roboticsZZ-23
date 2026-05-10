@@ -1,0 +1,22 @@
+import java.util.Scanner
+
+fun main(args: Array<String>) {
+    val sc = Scanner(System.`in`)
+
+    if (sc.hasNextInt()) {
+        val n = sc.nextInt()
+
+        repeat(n) {
+            val t = sc.nextLong()
+            val anoReferencia = 2015
+
+            if (t < anoReferencia) {
+                val resultado = anoReferencia - t
+                println("$resultado D.C.")
+            } else {
+                val resultado = t - anoReferencia + 1
+                println("$resultado A.C.")
+            }
+        }
+    }
+}
