@@ -37,19 +37,23 @@ fun main (){
                 println("Obrigado, volte logo!")
                 break
             }
-            if (funcao2 == 2){//Adicionar contato
+            if (funcao2 == 2) {
                 println("Digite o Nome do do contato:")
-                var nome = readln().toString()
+                val nome = readln().toString()
                 println("Digite o numero do contato:" +
                         "\nex: 819123456 ")
-                var numero = readln().toString()
-                if (numero.length == 11){
-                    contador += 1
-                    var id = contador
-                    println("O contato adicionado sera: id:$id, numero:$numero, nome:$nome.")
-                    adicionarNumero(contatos, id, nome ,numero)
-                    println(listarContatos(contatos))
-                }else {
+                val numero = readln().toString()
+                if (numero.length == 11) {
+                    if (contatoJaExiste(contatos, nome, numero)) {
+                        println("Erro: Nome ou Numero ja cadastrado!")
+                    } else {
+                        contador += 1
+                        val id = contador
+                        adicionarNumero(contatos, id, nome, numero)
+                        println("O contato adicionado sera: id:$id, numero:$numero, nome:$nome.")
+                        listarContatos(contatos)
+                    }
+                } else {
                     println("Digite um numero valido!")
                 }
                 sleep(5000)
@@ -231,4 +235,12 @@ fun pegarIdPeloNumero(contatos: Map<Int, Pair<String, String>>, numeroBusca: Str
         }
     }
     return 0 // Retorna 0 se não achar nada
+}
+fun contatoJaExiste(contatos: Map<Int, Pair<String, String>>, nome: String, numero: String): Boolean {
+    for (contato in contatos.values) {
+        if (contato.first.equals(nome, ignoreCase = true) || contato.second == numero) {
+            return true
+        }
+    }
+    return false
 }
