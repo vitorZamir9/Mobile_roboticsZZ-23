@@ -116,27 +116,27 @@ fun main (){
                     var idNativo = pegarIdPeloNumero(contatos,numero)
                     var nomeNativo = contatos[idNativo]?.first?:"nao encontrado"
                     println("O que voce quer atualizar do contato? " +
-                            "\n(0)-Nome" +
-                            "\n(1)-Numero" +
-                            "\n(3)Nome e numero" +
-                            "\n(4)Cancelar operacao")
+                            "\n(3)-Nome" +
+                            "\n(2)-Numero" +
+                            "\n(1)Nome e numero" +
+                            "\n(0)Cancelar operacao")
                     println("Digite aqui: ")
                     var funcao = readln().toInt()
-                    while (funcao != 4){
-                        if (funcao == 0){
+                    while (funcao != 0){
+                        if (funcao == 3){
                             println("Alterar so nome do contato para qual: ")
                             var novoNome = readln().toString()
                             atualizarContato(contatos,numero,novoNome,numero)
                             break
                         }
-                        if (funcao == 1){
+                        if (funcao == 2){
                             //tem que pegar o que ja estava
                             println("Alterar so numero do contato para qual: ")
                             var novoNumero = readln().toString()
                             atualizarContato(contatos,numero,nomeNativo, novoNumero)
                             break
                         }
-                        if (funcao == 2){
+                        if (funcao == 1){
                             println("Alterar o nome do contato para qual: ")
                             var novoNome = readln().toString()
                             println("Alterar o numero do contato para qual:")
