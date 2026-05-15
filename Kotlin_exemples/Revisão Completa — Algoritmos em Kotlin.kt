@@ -10,7 +10,7 @@ fun main (){
     var funcaoDif = 0
     var contador= 0
     var numero = 0
-
+    var nome = ""
     while (funcao == 0) {
         println("(0)-funcao" +
                 "\n(1)-Exercício 1 — Par ou ímpar" +
@@ -69,7 +69,11 @@ fun main (){
                 if (funcaoDif == 1) {//Faz a atividade
                     println("Fazendo a atividade!")
                     //Atividade
-
+                    println("Digite o nome do Aluno(a) de Kris: ")
+                    var nome = readln().toString()
+                    println("Digite a nota final do Aluno(a) $nome: ")
+                    var numero = readln().toInt()
+                    print("O Aluno de Kris foi: ${aprovacaoDkris(numero)}")
                     //
                     sleep(2000)
                 }
@@ -91,13 +95,18 @@ fun main (){
                 if (funcaoDif == 1) {//Faz a atividade
                     println("Fazendo a atividade!")
                     //Atividade
-
+                    println("Digite o nome do Aluno(a) de Kris: ")
+                    var nome = readln().toString()
+                    println("Digite a carga horária do Aluno(a) $nome: ")
+                    var numero = readln().toString()
+                    println("A carga horaria do Aluno(a) $nome: ${medicaoCargaHoraria(nome,numero)}")
                     //
                     sleep(2000)
                 }
             }
         }
         if (funcao == 4) {
+            //parei aqui falta terminar
             //entra no loop da atividade
             while (funcaoDif == 0) {
                 //entra no loop da atividade
@@ -113,6 +122,8 @@ fun main (){
                 if (funcaoDif == 1) {//Faz a atividade
                     println("Fazendo a atividade!")
                     //Atividade
+                    println("Digite um número de 1-10 para saber sobre um curso: ")
+                    var numero = readln().toInt()
 
                     //
                     sleep(2000)
@@ -265,4 +276,41 @@ fun parOuImpar(numero: Int): String {
         return "Ímpar"
     }
 
+}
+fun aprovacaoDkris(numeroPmedia: Int): String {
+    if (numeroPmedia >= 90 && numeroPmedia <= 100) {
+        return "Excelente"
+    }else if (numeroPmedia >= 70 && numeroPmedia <= 89) {
+        return "Aprovado"
+    }else if (numeroPmedia >= 50 && numeroPmedia <= 69) {
+        return "Para Recuperação"
+    }else if (numeroPmedia >= 0 && numeroPmedia <= 49) {
+        return "Reprovado"
+    }else{
+        return "Nota inválida"
+    }
+}
+fun medicaoCargaHoraria(nome: String, cargaHorariaTEXTO: String): String {
+    val carga = cargaHorariaTEXTO.toIntOrNull()
+        ?: return "Carga horária deve ser numérica"
+    if (nome == "") {
+        return "Nome vazio"
+    }else if (carga < 0 ) {
+        return "Carga horária deve ser maior que zero"
+    }else if (carga > 400) {
+        return "Carga horária não pode passar de 400"
+    }else{
+        return "Curso Válido"
+    }
+}
+data class Curso(
+    val id: Int,
+    val nome: String,
+    val categoria: String,
+    val cargaHoraria: Int,
+    val nota: Double,
+    val ativo: Boolean
+)
+fun buscarPorId(cursos: List<Curso>, id: Int): Curso? {
+    return cursos.firstOrNull { it.id == id }
 }
