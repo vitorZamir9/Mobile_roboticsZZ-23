@@ -59,7 +59,7 @@ Nesta ocupação, as avaliações cobrem:
 
 O nível de excelência exigido pela WorldSkills requer um treinamento de altíssimo rendimento. Toda a minha preparação ocorre no SENAI Santo Amaro, uma referência técnica em Pernambuco. Lá, executo uma rotina rigorosa que simula as exigências dos módulos da competição, otimizando desde lógicas de controle até a integridade mecânica das peças.
 
-Esse desenvolvimento técnico e estratégico é guiado pelos meus treinadores, [Nome do Treinador 1] e [Nome do Treinador 2]. Eles são fundamentais não apenas no refinamento da programação e da mecânica, mas também na preparação psicológica, gestão de tempo de prova e na adequação estrita aos padrões internacionais avaliados pelos Experts.
+Esse desenvolvimento técnico e estratégico é guiado pelo meu treinador, Kristyson. Eles são fundamentais não apenas no refinamento da programação e da mecânica, mas também na preparação psicológica, gestão de tempo de prova e na adequação estrita aos padrões internacionais avaliados pelos Experts.
 
 ---
 
