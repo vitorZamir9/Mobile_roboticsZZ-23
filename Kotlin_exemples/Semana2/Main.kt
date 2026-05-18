@@ -27,13 +27,13 @@ fun main() {
         println("A tentar criar um curso com carga horária inválida (0h)...")
         Course(2, "Curso Bugado", 0, CourseLevel.ADVANCED)
     } catch (e: IllegalArgumentException) {
-        println("✅ Bloqueado com sucesso pelo 'require': ${e.message}")
+        println("Bloqueado com sucesso pelo 'require': ${e.message}")
     }
 
     try {
         println("A tentar criar um estudante com e-mail inválido...")
         Student(2, "José", "email_sem_arroba_e_ponto")
     } catch (e: IllegalArgumentException) {
-        println("✅ Bloqueado com sucesso pelo 'require': ${e.message}")
+        println("Bloqueado com sucesso pelo 'require': ${e.message}")
     }
 }
