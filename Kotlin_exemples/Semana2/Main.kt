@@ -1,39 +1,101 @@
-import model.Course
-import model.CourseLevel
-import model.Student
-import model.Trail
+import model.*
 import service.TrainingService
 
 fun main() {
     val service = TrainingService()
 
-    println("=== WorldSkills MOB 08 - Treinamento de Segunda-feira ===")
-    
-    // 1. Instanciando dados válidos para a base mínima
-    val cursoBasico = Course(1, "Kotlin Fundamentos", 10, CourseLevel.BASIC)
-    val trilhaAndroid = Trail(101, "Trilha Android Core")
-    trilhaAndroid.addCourse(cursoBasico)
-    service.registerTrail(trilhaAndroid)
+    // Setup inicial de testes (Mock data robusto)
+    val c1 = Course(1, "Kotlin POO Avançado", 20, CourseLevel.INTERMEDIATE)
+    val c2 = Course(2, "Arquitetura Android", 30, CourseLevel.ADVANCED)
 
-    // Uso da função fábrica com dados que precisam de higienização
-    val novoAluno = Student.fromRawInput(1, "  Vitor Nascimento  ", " VITOR@EMAIL.COM ", trilhaAndroid)
-    service.registerStudent(novoAluno)
+    val trilha = Trail(10, "Desenvolvimento Mobile")
+    trilha.addCourse(c1)
+    trilha.addCourse(c2)
+    service.registerTrail(trilha)
 
-    println("Base inicial criada com sucesso: ${service.getAllStudents().first()}")
+    println("=== SISTEMA EVOLUÍDO - BASE QUARTA-FEIRA ===")
 
-    // 2. Demonstração de diagnóstico técnico: Testando se as regras do Bloco Init estão a funcionar
-    println("\n--- Teste de Mesa de Robustez (Invariantes) ---")
-    try {
-        println("A tentar criar um curso com carga horária inválida (0h)...")
-        Course(2, "Curso Bugado", 0, CourseLevel.ADVANCED)
-    } catch (e: IllegalArgumentException) {
-        println("Bloqueado com sucesso pelo 'require': ${e.message}")
-    }
+    while (true) {
+        println("\n--- MENU DE OPERAÇÕES ---")
+        println("1. Cadastrar Aluno")
+        println("2. Realizar Nova Matrícula em Trilha")
+        println("3. Registrar Progresso (Concluir 1 Curso)")
+        println("4. Ver Relatório Geral e Ranking")
+        println("5. Sair")
+        print("Selecione: ")
 
-    try {
-        println("A tentar criar um estudante com e-mail inválido...")
-        Student(2, "José", "email_sem_arroba_e_ponto")
-    } catch (e: IllegalArgumentException) {
-        println("Bloqueado com sucesso pelo 'require': ${e.message}")
+        when (readlnOrNull()?.trim()) {
+            "1" -> {
+                try {
+                    print("ID do Aluno (Inteiro): ")
+                    val id = readln().toInt()
+                    print("Nome do Aluno: ")
+                    val name = readln()
+                    print("E-mail do Aluno: ")
+                    val email = readln()
+
+                    val student = Student.fromRawInput(id, name, email)
+                    if (service.registerStudent(student)) {
+                        println("Aluno registrado.")
+                    } else {
+                        println("ID de aluno já existe.")
+                    }
+                } catch (e: NumberFormatException) {
+                    println("Erro: O ID digitado deve ser um número inteiro válido.")
+                } catch (e: IllegalArgumentException) {
+                    println("Erro de Validação: ${e.message}")
+                }
+            }
+            "2" -> {
+                try {
+                    print("ID da Matrícula: ")
+                    val eId = readln().toInt()
+                    print("ID do Aluno: ")
+                    val sId = readln().toInt()
+                    print("ID da Trilha: ")
+                    val tId = readln().toInt()
+
+                    service.enrollStudent(eId, sId, tId)
+                        .onSuccess { println("Matrícula realizada com sucesso!") }
+                        .onFailure { error -> println("Falha na matrícula: ${error.message}") }
+                } catch (e: Exception) {
+                    println("Entrada inválida detectada.")
+                }
+            }
+            "3" -> {
+                try {
+                    print("ID do Aluno: ")
+                    val sId = readln().toInt()
+                    print("ID da Trilha: ")
+                    val tId = readln().toInt()
+
+                    if (service.advanceProgress(sId, tId)) {
+                        println("Progresso atualizado! Mais um curso concluído na trilha.")
+                    } else {
+                        println("Não foi possível avançar (Matrícula não existe ou trilha já concluída).")
+                    }
+                } catch (e: Exception) {
+                    println("Erro ao processar dados informados.")
+                }
+            }
+            "4" -> {
+                val ranking = service.getRanking()
+                if (ranking.isEmpty()) {
+                    println("Nenhuma matrícula ativa para gerar relatórios.")
+                } else {
+                    println("\n--- RANKING DE PROGRESSO NAS TRILHAS ---")
+                    ranking.forEachIndexed { index, enrollment ->
+                        println("${index + 1}º - Aluno: ${enrollment.student.name}")
+                        println("     Trilha: ${enrollment.trail.name}")
+                        println("     Progresso: ${enrollment.progress.completed}/${enrollment.progress.total} cursos concluídos (${enrollment.progress.percent()}%)")
+                    }
+                }
+            }
+            "5" -> {
+                println("Encerrando sprint de quarta-feira.")
+                break
+            }
+            else -> println("Opção inválida.")
+        }
     }
 }
